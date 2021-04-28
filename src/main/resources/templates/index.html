@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>ReactJS + Spring Data REST</title>
+
+  <!-- CDN version. TODO: provide a built version from Webpack -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rossorigin="anonymous">
+
+  <link rel="stylesheet" href="/main.css" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  <!--link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet"-->
+  <!--link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet"-->
+
+</head>
+<body>
+  <div id="root"></div>
+  <div id="user-data"
+       th:attr="data-username=${#authentication.name},data-is-admin=${#authorization.expression('hasRole(''ROLE_MANAGER'')')}">
+  </div>
+  <div id="app-data"
+       data-api-url="/api"><!-- Replace with Spring configurations and th:attr ... -->
+  </div>
+
+  <!-- CDN versions. TODO: provide a built version from Webpack -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" crossorigin="anonymous"></script>
+  <!--script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" crossorigin="anonymous"></script-->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+  <script src="/built/bundle.js"></script>
+</body>
+</html>
